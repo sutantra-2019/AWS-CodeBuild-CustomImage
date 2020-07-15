@@ -21,7 +21,7 @@ phases:
       - echo '-----------------------------------------------------------------------------------------'
       - echo 'Logging Into AWS ECR Repository pge-ecm-cicd-customimage'
       - echo '-----------------------------------------------------------------------------------------'
-      - $(aws ecr get-login --no-include-email --region us-west-2)
+      - $(aws ecr get-login --no-include-email --region us-east-1)
       - echo '-----------------------------------------------------------------------------------------'
       - echo 'Pushing Custom Image To Repository pge-ecm-cicd-customimage'
       - echo '-----------------------------------------------------------------------------------------'
