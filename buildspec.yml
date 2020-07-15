@@ -9,20 +9,20 @@ phases:
   build:
     commands:
       - echo '-----------------------------------------------------------------------------------------'
-	  - echo 'Building Custom Image For AWS Code Build'
-	  - echo '-----------------------------------------------------------------------------------------'
-	  - docker build -t aws-cicd-customimage:latest .
-      - docker tag aws-cicd-customimage:latest 138871512076.dkr.ecr.us-west-2.amazonaws.com/pge-ecm-cicd-customimage:latest
-	  - echo '-----------------------------------------------------------------------------------------'
-	  - echo 'Bulding Docker Image And Tagging Completed Sucessfully'
+      - echo 'Building Custom Image For AWS Code Build'
       - echo '-----------------------------------------------------------------------------------------'
-  post_build: # Push the Docker image to the ECR
+      - docker build -t aws-cicd-customimage:latest .
+      - docker tag aws-cicd-customimage:latest 138871512076.dkr.ecr.us-west-2.amazonaws.com/pge-ecm-cicd-customimage:latest
+      - echo '-----------------------------------------------------------------------------------------'
+      - echo 'Bulding Docker Image And Tagging Completed Sucessfully'
+      - echo '-----------------------------------------------------------------------------------------'
+  post_build:
     commands:
       - echo '-----------------------------------------------------------------------------------------'
-	  - echo 'Logging Into AWS ECR Repository pge-ecm-cicd-customimage'
+      - echo 'Logging Into AWS ECR Repository pge-ecm-cicd-customimage'
       - echo '-----------------------------------------------------------------------------------------'
       - $(aws ecr get-login --no-include-email --region us-west-2)
       - echo '-----------------------------------------------------------------------------------------'
-	  - echo 'Pushing Custom Image To Repository pge-ecm-cicd-customimage'
-	  - echo '-----------------------------------------------------------------------------------------'
+      - echo 'Pushing Custom Image To Repository pge-ecm-cicd-customimage'
+      - echo '-----------------------------------------------------------------------------------------'
       - docker push 138871512076.dkr.ecr.us-west-2.amazonaws.com/pge-ecm-cicd-customimage:latest
