@@ -32,6 +32,7 @@ RUN echo 'Creating a Custom Image For AWS Code Build - Kubernetes Applications' 
 	&& curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.12.7/2019-03-27/bin/linux/amd64/aws-iam-authenticator \
 	&& chmod +x ./aws-iam-authenticator \
 	&& mkdir -p ~/bin && cp ./aws-iam-authenticator ~/bin/aws-iam-authenticator && export PATH=~/bin:$PATH \
+        && echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc	
 	&& echo '------------------------------------------------------------------------------' \
 	&& echo Downloading K8s Kubectl And Installing Kubectl \
 	&& echo '------------------------------------------------------------------------------' \
