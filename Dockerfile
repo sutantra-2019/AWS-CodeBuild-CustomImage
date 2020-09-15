@@ -26,7 +26,7 @@ RUN     echo '------------------------------------------------------------------
 	&& echo '------------------------------------------------------------------------------' \	
 	&& mkdir -p /usr/share/maven /usr/share/maven/ref \
 	&& echo '------------------------------------------------------------------------------' \	
-	&& aws s3 cp s3://pge-ecm-crmis-dependencies/apache-maven-3.6.3-bin.tar.gz /tmp/apache-maven-3.6.3-bin.tar.gz \
+	&& aws s3 cp s3://pge-ecm-crmis-dependencies1/apache-maven-3.6.3-bin.tar.gz /tmp/apache-maven-3.6.3-bin.tar.gz \
 	&& echo '------------------------------------------------------------------------------' \	
 	&& tar -xzf /tmp/apache-maven-3.6.3-bin.tar.gz -C /usr/share/maven --strip-components=1 \
 	&& echo '------------------------------------------------------------------------------' \	
