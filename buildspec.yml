@@ -6,13 +6,14 @@ phases:
   pre_build:
     commands:
       - echo 'Nothing To Do In Pre-Build Phase'
+      - $(aws ecr get-login --no-include-email --region us-west-2)
   build:
     commands:
       - echo '-----------------------------------------------------------------------------------------'
       - echo 'Building Custom Image For AWS Code Build'
       - echo '-----------------------------------------------------------------------------------------'
       - docker build -t aws-cicd-customimage:latest .
-      - docker tag aws-cicd-customimage:latest 138871512076.dkr.ecr.us-west-2.amazonaws.com/pge-ecm-cicd-customimage:latest
+      - docker tag aws-cicd-customimage:latest 859622052607.dkr.ecr.us-east-1.amazonaws.com/pge-ecm-cicd-customimage:latest
       - echo '-----------------------------------------------------------------------------------------'
       - echo 'Bulding Docker Image And Tagging Completed Sucessfully'
       - echo '-----------------------------------------------------------------------------------------'
@@ -21,8 +22,7 @@ phases:
       - echo '-----------------------------------------------------------------------------------------'
       - echo 'Logging Into AWS ECR Repository pge-ecm-cicd-customimage'
       - echo '-----------------------------------------------------------------------------------------'
-      - $(aws ecr get-login --no-include-email --region us-west-2)
       - echo '-----------------------------------------------------------------------------------------'
       - echo 'Pushing Custom Image To Repository pge-ecm-cicd-customimage'
       - echo '-----------------------------------------------------------------------------------------'
-      - docker push 138871512076.dkr.ecr.us-west-2.amazonaws.com/pge-ecm-cicd-customimage:latest
+      - docker push 859622052607.dkr.ecr.us-east-1.amazonaws.com/pge-ecm-cicd-customimage:latest
