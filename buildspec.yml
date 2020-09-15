@@ -12,7 +12,7 @@ phases:
       - echo '-----------------------------------------------------------------------------------------'
       - echo 'Building Custom Image For AWS Code Build'
       - echo '-----------------------------------------------------------------------------------------'
-      - docker build -t aws-cicd-customimage:latest .
+      - docker build --build-arg AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION --build-arg AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI -t aws-cicd-customimage:latest .
       - docker tag aws-cicd-customimage:latest 859622052607.dkr.ecr.us-east-1.amazonaws.com/pge-ecm-cicd-customimage:latest
       - echo '-----------------------------------------------------------------------------------------'
       - echo 'Bulding Docker Image And Tagging Completed Sucessfully'
